@@ -1,11 +1,18 @@
 #include<bits/stdc++.h>
+#include<sstream> 
 using namespace std;
 typedef long long int lli;
 
 vector<string>arr12;
 vector<string>arr13;
+vector<pair<string,float> >vec;
 
 
+bool sortByVal(const pair<string, float> &a, 
+               const pair<string, float> &b) 
+{ 
+    return (a.second < b.second); 
+}
 void combinationUtil(vector<int>arr1, vector<string>arr2, int n, int r, int index, 
                      int data1[], string data2[], int i) 
 { 
@@ -122,32 +129,54 @@ int main()
 			if(flag==1)
 			{
 				int sum=0;
+				string s2="";
+				cout<<s2<<" ";
 			while(count<p)
 			{
-			   cout<<arr12[k]<<" ";
+			   s2=s2+arr12[k]+" ";
 			   sum=sum+m1[arr12[k]];
 				count++;
 				k++;
 			}
-			cout<<(float)sum/p;
+			
+			float avg1=(float)sum/p;
+		    stringstream ss;
+			ss<<avg1;
+			string sy;
+			ss>>sy;
+			
+			s2=s2+"("+sy+")"+" VS"+" " ; 
 		     count=0;
-		     
+		    
 		      sum=0;
 		    while(count<p)
 			{
-			   cout<<arr13[l]<<" ";
+			   s2=s2+arr13[l]+" ";
 			sum=sum+m1[arr13[l]];
                arr13[l]="";
 				count++;
 				l++;
 			}
-			cout<<(float)sum/p;
-			cout<<endl;
-				
+			float avg2=(float)sum/p;
+		
+		    stringstream ss1;
+			ss1<<avg2;
+			string sz;
+			ss1>>sz;
+		
+			s2=s2+"("+sz+")";
+		
+			vec.push_back(make_pair(s2, fabs(avg1-avg2)));
 			}
-			
+				 
 		flag=1;
 		}
+	}
+	
+	sort(vec.begin(),vec.end(), sortByVal);
+	for (int i = 0; i < vec.size(); i++)
+	{
+		cout << vec[i].first <<" : "<<vec[i].second<<endl;
 	}
 	cout<<endl;	
 
