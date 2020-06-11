@@ -86,6 +86,8 @@ int main()
 {
 	//taking the size of a team or value of m
 	lli m;
+	
+	cout<<"Enter the number of players on each side or value of m : ";
 	cin>>m;
 	
 	//declaring the string and int vector array for storing the name and score of players
@@ -99,10 +101,19 @@ int main()
 	//the input also stored in map because this map is used in a program
 	map<string, lli>m1;
 	
-	for(lli i=0;i<8;i++)
+	cout<<"Enter the number of players : ";
+	lli r=0;
+	cin>>r;
+	if((m>r/2) )
 	{
-		cin>>s1;
-		cin>>temp;
+	cout<<"Numbers of players are not enough to create a team of m players. Please enter valid number of players...";
+	return(0);}
+	cout<<"Enter the player names with their score : ";
+    for(lli i=0;i<r;i++)
+	//while(cin>>s1 && cin>>temp)
+	{
+	   cin>>s1;
+	   cin>>temp;
 		//storing players name and score 
 		arr.push_back(s1);
 		arr1.push_back(temp);
@@ -118,23 +129,25 @@ int main()
 	
 	
 	// Here is the logic to get the m by m combinations
-	
-	for(lli i=0;i<arr13.size()/2;i++)
+
+for(lli i=0;i<arr13.size()/2;i++)
 	{
 	arr13[i]="";
 	}
+	
 	lli p=m;
-	for(lli i=0;i<arr12.size()-1;i=i+p)
+	for(lli i=0;i<arr12.size()-p;i=i+p)
 	{
-		for(lli j=0;j<arr13.size()-1;j=j+p)
+		for(lli j=0;j<arr13.size();j=j+p)
 		{
 			lli k=i;
 			lli l=j;
 			lli count=0;
 			int flag=1;
-			
+			  
 			   for(lli x=i;x<i+p;x++)
 			   {
+			   
 			   	for(lli y=j;y<j+p;y++)
 			   	{
 			   		
@@ -177,7 +190,7 @@ int main()
 			{
 			   s2=s2+arr13[l]+" ";
 			sum=sum+m1[arr13[l]];
-               arr13[l]="";
+              
 				count++;
 				l++;
 			}
@@ -196,12 +209,15 @@ int main()
 				 
 		flag=1;
 		}
+		
 	}
 	
 	//Here comes the sorting m by m matches according to match quality
 	sort(vec.begin(),vec.end(), sortByVal);
 	
 	//Printing the output which is sorted by match quality
+	cout<<"Sorted list of "<< m <<" by "<< m <<"players match according to match quality...";
+	cout<<endl;
 	for (lli i = 0; i < vec.size(); i++)
 	{
 		cout << vec[i].first<<endl;
