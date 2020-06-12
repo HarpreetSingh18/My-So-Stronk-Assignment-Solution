@@ -1,0 +1,26 @@
+**** Instruction before using the code ***
+
+
+
+1. The Final solution is in Final_solution_assignment_so_stronk_assignment.cpp, which is present in current folder.
+
+
+
+2. The git repository has been added to see all the commits.
+
+
+
+3. As you have mentioned that variations in input and output are okay, Therefore my code is a little bit different in input/output.
+
+
+
+4. For your convenience, I have added screenshots of Different Input/Output that you can check before providing the input.
+
+
+
+
+5. The unit test case file is also included in the current folder for unit testing.
+
+6. My code's output is the same as mentioned in the question, but differ in input/output, therefore kindly check that before providing input.
+
+Thank you!
